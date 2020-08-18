@@ -1,0 +1,40 @@
+/*
+ID: babuake1
+lang: c++14
+task: Apartment
+*/
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    int n=0;
+    int m=0;
+    int k=0;
+    int i=0;
+    int j=0;
+    int input=0;
+    int count=0;
+    vector<int>desize;
+    vector<int>resize;
+    cin>>n>>m>>k;
+    for(i=0;i<n;i++){
+        cin >> input;
+        desize.push_back(input);
+    }
+    for(i=0;i<m;i++){
+        cin >> input;
+        resize.push_back(input);
+    }
+    for(i=0; i<n; i++){
+        for(j=0;j<m;j++){
+            if(desize[i]<=(resize[j]+k) && desize[i]>=(resize[j]-k)){
+                resize.erase(resize.begin()+j);
+                m--;
+                count++;
+            }
+        }
+    }
+    cout << count;
+    return 0;
+}
